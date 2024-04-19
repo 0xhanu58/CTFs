@@ -19,3 +19,5 @@ print(data.encode('utf-16-be').decode())
 ```
 # Method 2
 - Check `decode.py`, i was having fun so also created `encode.py`
+# Reference
+https://benjamintoll.com/2022/09/16/on-the-picoctf-transformation-challenge/
