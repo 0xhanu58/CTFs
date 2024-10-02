@@ -1,4 +1,0 @@
-```bash
-cat flag
-```
-
