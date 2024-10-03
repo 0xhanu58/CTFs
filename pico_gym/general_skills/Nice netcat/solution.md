@@ -9,5 +9,6 @@ title: ✅ Nice netcat
 ---
 # Description 📄
 - There is a nice program that you can talk to by using this command in a shell: `$ nc mercury.picoctf.net 22902`, but it doesn't speak English...
+
 # Method_1 🧪
 - check `sol.py`

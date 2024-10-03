@@ -1,3 +1,22 @@
+---
+Challenge Name: Mod 26
+tags:
+  - picoCTF-2021
+  - cryptography
+Author: PANDU
+title: ✅ mod_26
+---
+# Description 📄
+- Cryptography can be easy, do you know what ==ROT13== is? 
+`cvpbPGS{arkg_gvzr_V'yy_gel_2_ebhaqf_bs_ebg13_GYpXOHqX}`
+
+# Method_1 🧪 (Online)
+- Use online websites like https://www.dcode.fr/chiffre-rot-13
+
+# Method_2 🧪
+- written python script for it, check the code
+
+```python
 from gmpy2 import *
 
 def rot_decode(rot_num,text):
@@ -26,7 +45,7 @@ def rot_encode(rot_num,text):
                 result += chr((26 + rotated) + offset - 1)
         else:
             result += char
-    return result 
+    return result
 
 
 def main():
@@ -44,3 +63,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```

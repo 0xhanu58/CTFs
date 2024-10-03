@@ -1,3 +1,19 @@
+---
+Challenge Name: Mind your Ps and Qs
+tags:
+  - picoCTF-2021
+  - cryptography
+Points: "20"
+Solves: 39,395
+title: ✅ Mind your Ps and Qs
+---
+# Description 📄
+- In RSA, a small `e` value can be problematic, but what about `N`? Can you decrypt this? [values](https://mercury.picoctf.net/static/38f30029ab93478310e906d3d084a4c1/values)
+
+# Method_1 🧪
+- Check the code
+
+```python
 from factordb.factordb import FactorDB
 from gmpy2 import *
 
@@ -25,3 +41,4 @@ while plaintext > 0:
 plaintext_ascii = plaintext_ascii[::-1]
 
 print(f"{plaintext_ascii=}")
+```
