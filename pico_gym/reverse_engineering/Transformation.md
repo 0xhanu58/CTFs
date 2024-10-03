@@ -13,6 +13,7 @@ title: ✅ Transformation
 
 # Method_1 🧪
 - Go to **cyberchef** and use **magic** with intense mode, there you will get the **flag** and get the **unicode type** `utf-16-be`
+
 ```python
 with open("enc", 'r') as f:
     data = f.read()
@@ -24,7 +25,6 @@ print(data.encode('utf-16-be').decode())
 - Check `decode.py`, i was having fun so also created `encode.py`
 
 ## Decode.py
-- Code:
 
 ```python
 # with open("enc", 'r') as f:
@@ -48,7 +48,6 @@ print(f"{decoded_s=}")
 ```
 
 ## Encode.py
-- Code:
 
 ```python
 flag = input("Enter text to be encoded from utf-8 to utf-16: ")
