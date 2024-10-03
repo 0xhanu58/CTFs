@@ -26,6 +26,8 @@ binwalk -e 4_c.jpg
 xxd -c1 -p flag.txt | sed '/^00$/d' | xxd -r -p
 ```
 
+<img src="https://i.imgur.com/7dDCp1c.gif" alt="matryoshka-doll" title="matryoshka-doll" width="350" />
+
 - check the code
 
 ```python
