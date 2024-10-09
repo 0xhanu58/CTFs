@@ -1,10 +1,10 @@
 ---
-title: Verify
+title: ✅ Verify
 tags:
   - forensics
   - picoCTF-2024
-Date: 2024-10-08
-Difficulty: Easy
+date: 2024-10-08
+difficulty: Easy
 ---
 # Description 📄
 
