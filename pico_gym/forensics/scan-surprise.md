@@ -24,11 +24,11 @@ The same files are accessible via SSH here: `ssh -p 64401 ctf-player@atlas.picoc
 
 ![picoCTF_scan_surprise_img2](https://i.imgur.com/FyhrrPX.png)
 
-- Now just open the image and scan the qr code with your phone and you'll get the flag
+- Now just open the image and scan the **qr code** with your phone and you'll get the **flag**
 
 # Method_2 🧪
 
-- Another option is to use `zbarimg` command from package `zbar-tools` in debian systems and `zbar` in arch systems to scan the qr code in the terminal only
+- Another option is to use `zbarimg` command from package `zbar-tools` in **debian** systems and `zbar` in **arch** systems to scan the **qr code** in the terminal only
 
 ```bash
 zbar flag.png
