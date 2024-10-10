@@ -31,7 +31,7 @@ The same files are accessible via SSH here: `ssh -p 64401 ctf-player@atlas.picoc
 - Another option is to use `zbarimg` command from package `zbar-tools` in **debian** systems and `zbar` in **arch** systems to scan the **qr code** in the terminal only
 
 ```bash
-zbar flag.png
+zbarimg flag.png
 ```
 
 ![too easy](https://i.imgur.com/21y5T0p.gif)
